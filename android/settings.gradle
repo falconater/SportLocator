@@ -1,0 +1,3 @@
+rootProject.name = 'Envisioners'
+
+include ':app'
