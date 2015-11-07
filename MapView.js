@@ -7,31 +7,47 @@ var {
   Text,
   Image,
   View,
-  Component
+  Component,
+  TextInput,
+  TouchableHighlight
 } = React;
-
-class MapView extends Component {
-  render(){
-    return(
-      <View style={styles.container}>
-        <Text style={styles.welcome}>whatsup</Text>
-      </View>
-    );
-  }
-}
 
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor : 'white',
+    marginTop : 65
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  searchBar : {
+    height: 40,
+    paddingLeft : 10,
+    borderColor: 'gray', 
+    borderWidth: 7
   },
 });
+
+class MapView extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+
+  render(){
+    return (
+      <View style={styles.container}>
+        <TextInput
+            style={styles.searchBar}
+            placeholder='Search City...'
+            onChangeText={(text) => this.setState({text})}
+            value={this.state.text}
+          />
+      </View>
+    );
+  }
+
+}
 
 module.exports = MapView;
