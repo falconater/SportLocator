@@ -14,6 +14,7 @@ describe('refresh-btn', function(){
     var el = element(by.css('.refresh-btn'));
     el.click()
     //expect angular to refresh elements on the page
+    // browser.pause();
   });
 });
 
@@ -25,7 +26,7 @@ describe('enter city', function(){
     var el = element(by.buttonText('Submit'));
     el.click()
     .then(function(){
-      //browser.pause();
+      // browser.pause();
     })
   });
 });
@@ -33,20 +34,14 @@ describe('enter city', function(){
 describe('select sport', function(){
   it('should select the first sport', function(){
     // browser.driver.get('http://localhost:8080');
+    browser.sleep(8000);
     element.all(by.css('.dropdown-toggle')).first().click();
    
     element(by.cssContainingText('.sport-item', 'Soccer')).click()
    
     .then(function(){
-      //dirty timeout method.  Try to use protractor promises to resolve this problem
-      // var i = 0;
-      
-      // while(i < 100000){
-      //   i++;
-      //   console.log('i: ', i);
-      // }
-      // browser.waitForAngular();
-      browser.driver.sleep(1000);
+
+      browser.driver.sleep(5000);
 
         var checkbox = element.all(by.css('.checkin-button.checkin.btn')).get(0);
         var site = element.all(by.css('.sitename')).get(0).click()
@@ -57,27 +52,38 @@ describe('select sport', function(){
           // site.click();
         });
 
-      browser.driver.sleep(1000);
-      var checkBox2 = element.all(by.css('.checkin-button.checkin.btn')).get(1);
-      var site2 = element.all(by.css('.sitename')).get(1).click()
-        .then(function(){
-          // browser.waitForAngular();
-          // browser.driver.sleep(1000);
-          checkBox2.click();
-          // site.click();
-        });
 
-      browser.pause();
+//second checkbox
+      // browser.driver.sleep(5000);
+      // var checkBox2 = element.all(by.css('.checkin-button.checkin.btn')).get(1);
+      // var site2 = element.all(by.css('.sitename')).get(1).click()
+      //   .then(function(){
+      //     // browser.waitForAngular();
+      //     // browser.driver.sleep(1000);
+      //     checkBox2.click();
+      //     // site.click();
+      //   });
+
       
       // expect(site.getText()).toBe('CenturyLink Field');
-     
+     // browser.pause();
     });
    
   });
 });
 
-//Ok the basics are established
-//now we need to test Jia's feature.  
+describe('click review link', function(){
+  it('should have a clickable review link that opens a modal', function(){
+    browser.driver.sleep(5000);
+
+    // var reviewLink = 
+    element.all(by.css('.reviews')).get(0).click();
+    browser.pause();
+  });
+});
+
+//look at her code
+
 //first find the new el in the dom and click on adding a review
 //add sample text into the box
 //save
