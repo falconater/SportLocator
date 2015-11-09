@@ -108,7 +108,7 @@
                                <span class="name">{{user.fbUserName}}:</span>
                               <form>
                                 <input type="text" ng-model="text">
-                                <input type="submit" value="post" ng-click="postReview(elm.place_id, $index, user, text); text='';">
+                                <input id="post-btn" type="submit" value="post" ng-click="postReview(elm.place_id, $index, user, text); text='';">
                                </form>
                             </li>
                          </ul>
