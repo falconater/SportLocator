@@ -120,11 +120,11 @@ angular.module('myApp.home', ['ngRoute', 'ngCookies'])
     geocoder = new google.maps.Geocoder();  // init Geocoder
 
     locationData = $('#location-search').val();  // get the auto-complete address
-
     geocoder.geocode(    // get LatLng for given address
       {'address': locationData},
       function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
+         console.log('results------->', results[0].geometry.location);
           getMap(results[0].geometry.location, 14);  // redraw map with new location
           drawUserMarker(results[0].geometry.location);  // draw a new marker in the center of the map
           $scope.clickedPosition = results[0].geometry.location;  // searches will now be around the new marker
